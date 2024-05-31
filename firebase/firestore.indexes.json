@@ -1,0 +1,44 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "Anuncio",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "UserID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Data",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Anuncio",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "CompradorID",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Data",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "fcm_tokens",
+      "fieldPath": "fcm_token",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    }
+  ]
+}

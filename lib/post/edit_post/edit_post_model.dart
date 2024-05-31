@@ -1,0 +1,40 @@
+import '/flutter_flow/flutter_flow_util.dart';
+import 'edit_post_widget.dart' show EditPostWidget;
+import 'package:flutter/material.dart';
+
+class EditPostModel extends FlutterFlowModel<EditPostWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  final unfocusNode = FocusNode();
+  final formKey = GlobalKey<FormState>();
+  // State field(s) for task widget.
+  FocusNode? taskFocusNode1;
+  TextEditingController? taskTextController1;
+  String? Function(BuildContext, String?)? taskTextController1Validator;
+  // State field(s) for description widget.
+  FocusNode? descriptionFocusNode;
+  TextEditingController? descriptionTextController;
+  String? Function(BuildContext, String?)? descriptionTextControllerValidator;
+  // State field(s) for task widget.
+  FocusNode? taskFocusNode2;
+  TextEditingController? taskTextController2;
+  String? Function(BuildContext, String?)? taskTextController2Validator;
+  // State field(s) for PlacePicker widget.
+  var placePickerValue = const FFPlace();
+
+  @override
+  void initState(BuildContext context) {}
+
+  @override
+  void dispose() {
+    unfocusNode.dispose();
+    taskFocusNode1?.dispose();
+    taskTextController1?.dispose();
+
+    descriptionFocusNode?.dispose();
+    descriptionTextController?.dispose();
+
+    taskFocusNode2?.dispose();
+    taskTextController2?.dispose();
+  }
+}

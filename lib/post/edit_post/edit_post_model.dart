@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'edit_post_widget.dart' show EditPostWidget;
 import 'package:flutter/material.dart';
 
@@ -19,8 +20,16 @@ class EditPostModel extends FlutterFlowModel<EditPostWidget> {
   FocusNode? taskFocusNode2;
   TextEditingController? taskTextController2;
   String? Function(BuildContext, String?)? taskTextController2Validator;
-  // State field(s) for PlacePicker widget.
-  var placePickerValue = const FFPlace();
+  // State field(s) for ChoiceChips widget.
+  FormFieldController<List<String>>? choiceChipsValueController;
+  String? get choiceChipsValue =>
+      choiceChipsValueController?.value?.firstOrNull;
+  set choiceChipsValue(String? val) =>
+      choiceChipsValueController?.value = val != null ? [val] : [];
+  bool isDataUploading = false;
+  FFUploadedFile uploadedLocalFile =
+      FFUploadedFile(bytes: Uint8List.fromList([]));
+  String uploadedFileUrl = '';
 
   @override
   void initState(BuildContext context) {}

@@ -8,6 +8,7 @@ import 'schema/util/firestore_util.dart';
 import 'schema/user_record.dart';
 import 'schema/parceiro_record.dart';
 import 'schema/anuncio_record.dart';
+import 'schema/locais_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,6 +20,7 @@ export 'schema/util/schema_util.dart';
 export 'schema/user_record.dart';
 export 'schema/parceiro_record.dart';
 export 'schema/anuncio_record.dart';
+export 'schema/locais_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -126,6 +128,43 @@ Future<List<AnuncioRecord>> queryAnuncioRecordOnce({
     queryCollectionOnce(
       AnuncioRecord.collection,
       AnuncioRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query LocaisRecords (as a Stream and as a Future).
+Future<int> queryLocaisRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      LocaisRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<LocaisRecord>> queryLocaisRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      LocaisRecord.collection,
+      LocaisRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<LocaisRecord>> queryLocaisRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      LocaisRecord.collection,
+      LocaisRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -144,27 +144,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const PoliticaprivacidadeWidget(),
         ),
         FFRoute(
-          name: 'termos',
-          path: '/termos',
-          builder: (context, params) => const TermosWidget(),
-        ),
-        FFRoute(
           name: 'ResetPass',
           path: '/resetPass',
           builder: (context, params) => const ResetPassWidget(),
-        ),
-        FFRoute(
-          name: 'EditPost',
-          path: '/editPost',
-          asyncParams: {
-            'editar': getDoc(['Anuncio'], AnuncioRecord.fromSnapshot),
-          },
-          builder: (context, params) => EditPostWidget(
-            editar: params.getParam(
-              'editar',
-              ParamType.Document,
-            ),
-          ),
         ),
         FFRoute(
           name: 'Comprar',
@@ -183,6 +165,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Premios',
           path: '/premios',
           builder: (context, params) => const PremiosWidget(),
+        ),
+        FFRoute(
+          name: 'EditPost',
+          path: '/editPost',
+          asyncParams: {
+            'editar': getDoc(['Anuncio'], AnuncioRecord.fromSnapshot),
+          },
+          builder: (context, params) => EditPostWidget(
+            editar: params.getParam(
+              'editar',
+              ParamType.Document,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

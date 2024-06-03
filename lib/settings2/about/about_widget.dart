@@ -71,13 +71,17 @@ class _AboutWidgetState extends State<AboutWidget> {
               padding: const EdgeInsets.all(16.0),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(12.0),
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxyZWNpY2xlfGVufDB8fHx8MTcxMTcyMDc4OHww&ixlib=rb-4.0.3&q=80&w=1080',
+                child: Image.asset(
+                  'assets/images/AppCycle-2.png',
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: 230.0,
                   fit: BoxFit.cover,
                 ),
               ),
+            ),
+            Divider(
+              thickness: 1.0,
+              color: FlutterFlowTheme.of(context).accent4,
             ),
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
@@ -86,14 +90,18 @@ class _AboutWidgetState extends State<AboutWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'A AppCycle é um projeto que nasceu da ideia ........',
+                    'A AppCycle é um projeto inovador que visa enfrentar o grande problema do desperdício têxtil e eletrónico. A missão deste projeto é ajudar os utilizadores a reciclar de forma responsável e sustentável, contribuindo para a redução do impacto ambiental destes resíduos.\n\nA escala do problema é alarmante: anualmente, são produzidas cerca de 92 milhões de toneladas de resíduos têxteis e 60 milhões de toneladas de resíduos eletrónicos em todo o mundo. Em Portugal, a situação também é preocupante, com aproximadamente 4 toneladas de resíduos têxteis geradas por semana e uma produção anual de 7 kg de lixo eletrónico por pessoa, sendo que mais de 90% deste lixo é reutilizável.\n\nPara ajudar no combate a esta realidade, foi criada a AppCycle. \n\nO compromisso da AppCycle é oferecer uma ferramenta que permita aos utilizadores contribuírem para um futuro mais sustentável, facilitando a reciclagem de resíduos têxteis e eletrónicos de forma eficiente. Junte-se a esta iniciativa e faça parte desta mudança positiva com a AppCycle!',
                     style: FlutterFlowTheme.of(context).labelLarge.override(
-                          fontFamily: 'Plus Jakarta Sans',
+                          fontFamily: 'Montserrat',
                           letterSpacing: 0.0,
                         ),
                   ),
                 ],
               ),
+            ),
+            Divider(
+              thickness: 1.0,
+              color: FlutterFlowTheme.of(context).accent4,
             ),
           ],
         ),

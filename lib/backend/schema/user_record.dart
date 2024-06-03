@@ -55,16 +55,6 @@ class UserRecord extends FirestoreRecord {
   int get pontos => _pontos ?? 0;
   bool hasPontos() => _pontos != null;
 
-  // "post" field.
-  String? _post;
-  String get post => _post ?? '';
-  bool hasPost() => _post != null;
-
-  // "post_cache" field.
-  String? _postCache;
-  String get postCache => _postCache ?? '';
-  bool hasPostCache() => _postCache != null;
-
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -74,8 +64,6 @@ class UserRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _admin = snapshotData['Admin'] as bool?;
     _pontos = castToType<int>(snapshotData['pontos']);
-    _post = snapshotData['post'] as String?;
-    _postCache = snapshotData['post_cache'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -120,8 +108,6 @@ Map<String, dynamic> createUserRecordData({
   String? phoneNumber,
   bool? admin,
   int? pontos,
-  String? post,
-  String? postCache,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -133,8 +119,6 @@ Map<String, dynamic> createUserRecordData({
       'phone_number': phoneNumber,
       'Admin': admin,
       'pontos': pontos,
-      'post': post,
-      'post_cache': postCache,
     }.withoutNulls,
   );
 
@@ -153,9 +137,7 @@ class UserRecordDocumentEquality implements Equality<UserRecord> {
         e1?.uid == e2?.uid &&
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.admin == e2?.admin &&
-        e1?.pontos == e2?.pontos &&
-        e1?.post == e2?.post &&
-        e1?.postCache == e2?.postCache;
+        e1?.pontos == e2?.pontos;
   }
 
   @override
@@ -167,9 +149,7 @@ class UserRecordDocumentEquality implements Equality<UserRecord> {
         e?.uid,
         e?.phoneNumber,
         e?.admin,
-        e?.pontos,
-        e?.post,
-        e?.postCache
+        e?.pontos
       ]);
 
   @override

@@ -12,8 +12,7 @@ export '/settings2/about/about_widget.dart' show AboutWidget;
 export '/settings2/help/help_widget.dart' show HelpWidget;
 export '/settings2/politicaprivacidade/politicaprivacidade_widget.dart'
     show PoliticaprivacidadeWidget;
-export '/settings2/termos/termos_widget.dart' show TermosWidget;
 export '/login/reset_pass/reset_pass_widget.dart' show ResetPassWidget;
-export '/post/edit_post/edit_post_widget.dart' show EditPostWidget;
 export '/post/comprar/comprar_widget.dart' show ComprarWidget;
 export '/settings2/premios/premios_widget.dart' show PremiosWidget;
+export '/post/edit_post/edit_post_widget.dart' show EditPostWidget;

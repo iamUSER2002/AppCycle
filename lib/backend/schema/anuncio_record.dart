@@ -44,11 +44,6 @@ class AnuncioRecord extends FirestoreRecord {
   String get descricao => _descricao ?? '';
   bool hasDescricao() => _descricao != null;
 
-  // "Local" field.
-  LatLng? _local;
-  LatLng? get local => _local;
-  bool hasLocal() => _local != null;
-
   // "CompradorID" field.
   DocumentReference? _compradorID;
   DocumentReference? get compradorID => _compradorID;
@@ -71,7 +66,6 @@ class AnuncioRecord extends FirestoreRecord {
     _userID = snapshotData['UserID'] as DocumentReference?;
     _tipoLixo = snapshotData['TipoLixo'] as String?;
     _descricao = snapshotData['Descricao'] as String?;
-    _local = snapshotData['Local'] as LatLng?;
     _compradorID = snapshotData['CompradorID'] as DocumentReference?;
     _id = snapshotData['ID'] as String?;
     _numTlmv = snapshotData['NumTlmv'] as String?;
@@ -118,7 +112,6 @@ Map<String, dynamic> createAnuncioRecordData({
   DocumentReference? userID,
   String? tipoLixo,
   String? descricao,
-  LatLng? local,
   DocumentReference? compradorID,
   String? id,
   String? numTlmv,
@@ -131,7 +124,6 @@ Map<String, dynamic> createAnuncioRecordData({
       'UserID': userID,
       'TipoLixo': tipoLixo,
       'Descricao': descricao,
-      'Local': local,
       'CompradorID': compradorID,
       'ID': id,
       'NumTlmv': numTlmv,
@@ -152,7 +144,6 @@ class AnuncioRecordDocumentEquality implements Equality<AnuncioRecord> {
         e1?.userID == e2?.userID &&
         e1?.tipoLixo == e2?.tipoLixo &&
         e1?.descricao == e2?.descricao &&
-        e1?.local == e2?.local &&
         e1?.compradorID == e2?.compradorID &&
         e1?.id == e2?.id &&
         e1?.numTlmv == e2?.numTlmv;
@@ -166,7 +157,6 @@ class AnuncioRecordDocumentEquality implements Equality<AnuncioRecord> {
         e?.userID,
         e?.tipoLixo,
         e?.descricao,
-        e?.local,
         e?.compradorID,
         e?.id,
         e?.numTlmv

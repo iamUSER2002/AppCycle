@@ -62,41 +62,90 @@ class _HelpWidgetState extends State<HelpWidget> {
         centerTitle: false,
         elevation: 0.0,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12.0),
-                child: Image.network(
-                  'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyfHxyZWNpY2xlfGVufDB8fHx8MTcxMTcyMDc4OHww&ixlib=rb-4.0.3&q=80&w=1080',
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: 230.0,
-                  fit: BoxFit.cover,
-                ),
-              ),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Divider(
+            thickness: 1.0,
+            color: FlutterFlowTheme.of(context).accent4,
+          ),
+          Divider(
+            thickness: 1.0,
+            color: FlutterFlowTheme.of(context).accent4,
+          ),
+          Container(
+            width: 382.0,
+            height: 676.0,
+            decoration: BoxDecoration(
+              color: FlutterFlowTheme.of(context).secondaryBackground,
             ),
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Isto é um teste',
-                    style: FlutterFlowTheme.of(context).labelLarge.override(
-                          fontFamily: 'Plus Jakarta Sans',
-                          letterSpacing: 0.0,
-                        ),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 370.0,
+                  height: 192.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),
-                ],
-              ),
+                  child: RichText(
+                    textScaler: MediaQuery.of(context).textScaler,
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text:
+                              'Se precisar de assistência ou tiver alguma dúvida sobre a AppCycle, pode entrar em contacto connosco através dos seguintes meios:\n\n',
+                          style: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                letterSpacing: 0.0,
+                                fontWeight: FontWeight.normal,
+                              ),
+                        ),
+                        const TextSpan(
+                          text: 'Envie um email para ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'suporte@appcycle.com',
+                          style: TextStyle(
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        const TextSpan(
+                          text:
+                              '\n\nEstamos aqui para ajudar! Agradecemos por escolher a AppCycle e por contribuir para um ambiente mais sustentável.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                          ),
+                        )
+                      ],
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
+                    ),
+                  ),
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: Image.asset(
+                    'assets/images/AppCycle-2.png',
+                    width: 150.0,
+                    height: 58.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

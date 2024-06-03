@@ -26,8 +26,6 @@ class PostModel extends FlutterFlowModel<PostWidget> {
       choiceChipsValueController?.value?.firstOrNull;
   set choiceChipsValue(String? val) =>
       choiceChipsValueController?.value = val != null ? [val] : [];
-  // State field(s) for PlacePicker widget.
-  var placePickerValue = const FFPlace();
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));

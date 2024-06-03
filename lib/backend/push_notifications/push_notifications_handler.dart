@@ -114,14 +114,7 @@ final parametersBuilderMap =
   'About': ParameterData.none(),
   'help': ParameterData.none(),
   'politicaprivacidade': ParameterData.none(),
-  'termos': ParameterData.none(),
   'ResetPass': ParameterData.none(),
-  'EditPost': (data) async => ParameterData(
-        allParams: {
-          'editar': await getDocumentParameter<AnuncioRecord>(
-              data, 'editar', AnuncioRecord.fromSnapshot),
-        },
-      ),
   'Comprar': (data) async => ParameterData(
         allParams: {
           'postComprar': await getDocumentParameter<AnuncioRecord>(
@@ -129,6 +122,12 @@ final parametersBuilderMap =
         },
       ),
   'Premios': ParameterData.none(),
+  'EditPost': (data) async => ParameterData(
+        allParams: {
+          'editar': await getDocumentParameter<AnuncioRecord>(
+              data, 'editar', AnuncioRecord.fromSnapshot),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

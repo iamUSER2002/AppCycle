@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -120,7 +119,6 @@ class _PostWidgetState extends State<PostWidget> {
                         userID: currentUserReference,
                         tipoLixo: _model.choiceChipsValue,
                         descricao: _model.descriptionTextController.text,
-                        local: _model.placePickerValue.latLng,
                         numTlmv: _model.taskTextController2.text,
                       ),
                       ...mapToFirestore(
@@ -502,60 +500,6 @@ class _PostWidgetState extends State<PostWidget> {
                                       [],
                                     ),
                                     wrapped: true,
-                                  ),
-                                  Text(
-                                    'Local de Recolha',
-                                    style: FlutterFlowTheme.of(context)
-                                        .labelMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          letterSpacing: 0.0,
-                                        ),
-                                  ),
-                                  Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
-                                    child: FlutterFlowPlacePicker(
-                                      iOSGoogleMapsApiKey:
-                                          'AIzaSyCOmYIln8EHErQx8eJgUWypST2miWTxNtQ',
-                                      androidGoogleMapsApiKey:
-                                          'AIzaSyAFiXgRbwiCP4RX84lzvZ1ctM8HZ25R1aA',
-                                      webGoogleMapsApiKey:
-                                          'AIzaSyD2rPEHOkpD1olZVh7wTlubbputGIxg4ns',
-                                      onSelect: (place) async {
-                                        setState(() =>
-                                            _model.placePickerValue = place);
-                                      },
-                                      defaultText: 'Escolha Localização',
-                                      icon: Icon(
-                                        Icons.place,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryText,
-                                        size: 16.0,
-                                      ),
-                                      buttonOptions: FFButtonOptions(
-                                        width: 300.0,
-                                        height: 55.0,
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .titleSmall
-                                            .override(
-                                              fontFamily: 'Plus Jakarta Sans',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              letterSpacing: 0.0,
-                                            ),
-                                        elevation: 2.0,
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(14.0),
-                                      ),
-                                    ),
                                   ),
                                   Text(
                                     'Imagem',
